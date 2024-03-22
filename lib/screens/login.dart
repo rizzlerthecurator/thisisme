@@ -52,8 +52,10 @@ class _LoginState extends State<Login> {
                         TextSpan(
                             text: 'Do you have an account?',),
                         TextSpan(text: ' Register'),
+                        
                       ],
                     ),
+                    
                   )
                 ],
               ),

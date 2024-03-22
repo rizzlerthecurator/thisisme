@@ -45,6 +45,7 @@ class Register extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
               ),
+              SizedBox(height: 25,),
                Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
