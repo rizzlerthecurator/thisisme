@@ -51,10 +51,11 @@ class _LoginState extends State<Login> {
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Do you have an account?',),
-                        TextSpan(text: ' Register'),
+                        TextSpan(text: ' Register',),
                         
                       ],
                     ),
+                    
                     
                   )
                 ],

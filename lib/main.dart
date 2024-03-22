@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:thisismeapp/screens/home_page.dart';
 import 'package:thisismeapp/screens/login.dart';
 import 'package:thisismeapp/screens/register.dart';
+import 'package:thisismeapp/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Register(),
+      home: const SplashScreen(),
     );
   }
 }
