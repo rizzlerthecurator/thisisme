@@ -6,6 +6,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(
+        child: Column(
+          children: [
+            Text('Item 1'),
+            Text('Item 2'),
+            Text('Item 3'),
+            Text('Item 4'),
+            Text('Item 5'),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text(
           'This Is Me',
@@ -34,7 +45,6 @@ class HomePage extends StatelessWidget {
             ),
           )
         ],
-        
       ),
     );
   }
