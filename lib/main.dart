@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thisismeapp/screens/register.dart';
 import 'package:thisismeapp/screens/splash_screen.dart';
 
 void main() {

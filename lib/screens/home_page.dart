@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:thisismeapp/screens/airplay.dart';
-import 'package:thisismeapp/screens/images.dart';
+import 'package:thisismeapp/screens/Aboutus.dart';
+import 'package:thisismeapp/screens/Contactus.dart';
+import 'package:thisismeapp/screens/Friends.dart';
+import 'package:thisismeapp/screens/Home.dart';
+import 'package:thisismeapp/screens/Report.dart';
+import 'package:thisismeapp/screens/Settings.dart';
+import 'package:thisismeapp/screens/Share.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,22 +26,24 @@ class HomePage extends StatelessWidget {
                   subtitle: Text("My account"),
                 ),
               ),
-              Divider(),
+              const Divider(
+                thickness: 5,
+              ),
               ListTile(
-                leading: Icon(Icons.home),
+                leading: const Icon(Icons.home),
                 title: const Text("Home"),
                 onTap: () => {
                   Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const Home(),
+                      builder: (BuildContext context) => const HomePage(),
                     ),
                   )
                 },
               ),
               ListTile(
-                leading: Icon(Icons.family_restroom),
-                title: Text("Friends"),
+                leading: const Icon(Icons.family_restroom),
+                title: const Text("Friends"),
                 onTap: () => {
                   Navigator.push<void>(
                     context,
@@ -47,29 +54,71 @@ class HomePage extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.report_problem),
-                title: Text("Report A Problem"),
+                leading: const Icon(Icons.report_problem),
+                title: const Text("Report A Problem"),
                 onTap: () => {
                   Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const Friends(),
+                      builder: (BuildContext context) => const Report(),
                     ),
                   )
                 },
               ),
-               ListTile(
-                leading: Icon(Icons.contact_page),
-                title: Text('Contact Us'),
+              ListTile(
+                leading: const Icon(Icons.contact_page),
+                title: const Text('Contact Us'),
                 onTap: () => {
                   Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const Friends(),
+                      builder: (BuildContext context) => const Contactus(),
                     ),
                   )
                 },
-              )
+              ),
+              ListTile(
+                leading: const Icon(Icons.info),
+                title: const Text('About Us'),
+                onTap: () => {
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const Aboutus(),
+                    ),
+                  )
+                },
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              const Divider(
+                thickness: 5,
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+                onTap: () => {
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const Settings(),
+                    ),
+                  )
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.share),
+                title: const Text("Share"),
+                onTap: () => {
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const Share(),
+                    ),
+                  )
+                },
+              ),
             ],
           ),
         ),
