@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "426176569293",
+    "project_id": "thisisme-7e596",
+    "storage_bucket": "thisisme-7e596.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426176569293:android:a98b6d0409146a9d962e84",
+        "android_client_info": {
+          "package_name": "com.example.thisismeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8dvEw2OEge4MxtUFIiG5GHYOHrT1CG50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

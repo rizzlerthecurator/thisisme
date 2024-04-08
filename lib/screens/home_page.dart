@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:thisismeapp/screens/Aboutus.dart';
 import 'package:thisismeapp/screens/Contactus.dart';
 import 'package:thisismeapp/screens/Friends.dart';
-import 'package:thisismeapp/screens/Home.dart';
 import 'package:thisismeapp/screens/Report.dart';
 import 'package:thisismeapp/screens/Settings.dart';
 import 'package:thisismeapp/screens/Share.dart';
