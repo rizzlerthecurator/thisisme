@@ -1,45 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:footyzone/screens/home_page.dart';
-import 'package:footyzone/screens/login.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 
 class Register extends StatelessWidget {
   Register({super.key});
-  final TextEditingController namecontroller = TextEditingController();
-  final TextEditingController emailcontroller = TextEditingController();
-  final TextEditingController passwordcontroller = TextEditingController();
-  final TextEditingController confirmpasswordcontroller = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool _isLoading = false;
-
+  
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 122, 116, 116),
+    return const Scaffold(
+      backgroundColor: Color.fromARGB(255, 122, 116, 116),
       body: SafeArea(
         child: Center(
           child: Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 50,
               ),
-              const Icon(
+              Icon(
                 Icons.lock,
                 size: 100,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              const Text('Hey There Welcome!'),
+              Text('Hey There Welcome!'),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
-                  controller: namecontroller,
-                  decoration: const InputDecoration(
+                
+                  decoration: InputDecoration(
                       labelText: 'Enter your name',
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
@@ -47,14 +36,13 @@ class Register extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 25,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
-                  controller: emailcontroller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                       labelText: "Enter your email",
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
@@ -62,14 +50,13 @@ class Register extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 25,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
-                  controller: passwordcontroller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                       labelText: 'Enter your password',
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
@@ -77,14 +64,13 @@ class Register extends StatelessWidget {
                           borderSide: BorderSide(color: Colors.grey))),
                 ),
               ),
-               const SizedBox(
+               SizedBox(
                 height: 25,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
-                  controller: confirmpasswordcontroller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                       labelText: 'Confirm your password',
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
