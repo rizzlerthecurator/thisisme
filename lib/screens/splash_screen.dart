@@ -2,7 +2,6 @@
 
   import 'package:flutter/material.dart';
   import 'package:thisismeapp/screens/auth/auth_gate.dart';
-  import 'package:thisismeapp/screens/login_page.dart';
 
 
   class SplashScreen extends StatefulWidget {
