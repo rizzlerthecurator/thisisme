@@ -2,7 +2,7 @@
   import 'package:thisismeapp/components/my_button.dart';
   import 'package:thisismeapp/components/textfield.dart';
 
-  import 'auth/auth_service.dart';
+  import '../services/auth/auth_service.dart';
 
   // ignore: must_be_immutable
   class LoginPage extends StatelessWidget {
@@ -32,14 +32,17 @@
       return Scaffold(
         backgroundColor: Colors.grey[300],
         body: SafeArea(
+          
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                
                 const SizedBox(height: 50),
-                const Icon(
+                 Icon(
                   Icons.person,
                   size: 100,
+                  color: Colors.orange.shade800,
                 ),
                 const SizedBox(height: 50),
                 const Text(
@@ -63,18 +66,7 @@
                 ),
               
                 const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
-                      ),
-                    ],
-                  ),
-                ),
+                
                 const SizedBox(height: 25),
                 MyButton(
                   onTap: () => login(context),
@@ -100,8 +92,11 @@
                     ),
                   ],
                 )
+                
               ],
+              
             ),
+            
           ),
         ),
       );

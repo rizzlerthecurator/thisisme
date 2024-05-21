@@ -1,6 +1,6 @@
   import 'package:firebase_auth/firebase_auth.dart';
   import 'package:flutter/material.dart';
-  import 'package:thisismeapp/screens/auth/loginorregister.dart';
+  import 'package:thisismeapp/services/auth/loginorregister.dart';
   import 'package:thisismeapp/screens/home_page.dart';
 
   class AuthGate extends StatelessWidget {
@@ -13,7 +13,7 @@
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return const HomePage();
+                  return  HomePage();
                 } 
                 
                 else {

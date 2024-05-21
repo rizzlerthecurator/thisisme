@@ -51,7 +51,7 @@ class _SettingsState extends State<Settings> {
                   Navigator.push<void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => const HomePage(),
+                      builder: (BuildContext context) =>  HomePage(),
                     ),
                   )
                 },

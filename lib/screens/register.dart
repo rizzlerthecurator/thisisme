@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thisismeapp/components/my_button.dart';
 import 'package:thisismeapp/components/textfield.dart';
-import 'package:thisismeapp/screens/auth/auth_service.dart';
+import 'package:thisismeapp/services/auth/auth_service.dart';
 
 class Register extends StatelessWidget {
   Register({super.key, required this.onTap});
@@ -11,11 +11,29 @@ class Register extends StatelessWidget {
   final confirmpasswordController = TextEditingController();
 
   void Function()? onTap;
-  void register() {
+  void register(BuildContext context) {
     final _auth = AuthService();
-    _auth.signUpWithEmailPassword(
-        emailController.text, passwordController.text);
-  }
+   if (passwordController.text == confirmpasswordController.text){
+    try {
+       _auth.signUpWithEmailPassword(
+        emailController.text, passwordController.text
+        );
+     }catch (e){
+      showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+     }
+    }
+    else{
+      showDialog(
+            context: context,
+            builder: (context) => const AlertDialog(
+                  title: Text("Passwords Don\'t match"),
+                ));
+    }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +45,10 @@ class Register extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
-              const Icon(
+               Icon(
                 Icons.person,
                 size: 100,
+                color: Colors.orange.shade800,
               ),
               const SizedBox(height: 50),
               Text(
@@ -42,7 +61,7 @@ class Register extends StatelessWidget {
               const SizedBox(height: 25),
               MyTextField(
                 controller: emailController,
-                hintText: 'Username',
+                hintText: 'Enter Your Email',
                 obscureText: false,
               ),
               const SizedBox(height: 10),
@@ -57,8 +76,9 @@ class Register extends StatelessWidget {
                 hintText: ' Confirm Password',
                 obscureText: true,
               ),
+              const SizedBox(height: 25),
               MyButton(
-                onTap: register,
+                onTap: () => register(context),
               ),
               const SizedBox(height: 50),
               Row(

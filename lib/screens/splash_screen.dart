@@ -1,45 +1,80 @@
-  import 'dart:async';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:thisismeapp/services/auth/auth_gate.dart';
+import 'package:video_player/video_player.dart';
 
-  import 'package:flutter/material.dart';
-  import 'package:thisismeapp/screens/auth/auth_gate.dart';
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
 
-  class SplashScreen extends StatefulWidget {
-    const SplashScreen({super.key});
+class _SplashScreenState extends State<SplashScreen> {
+  late VideoPlayerController _controller;
+  bool _isVideoPlaying = false;
 
-    @override
-    State<SplashScreen> createState() => _SplashScreenState();
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset("assets/images/splash.mp4")
+      ..initialize().then((_) {
+        setState(() {
+          _isVideoPlaying = true;
+        });
+      });
+    _controller.play();
+    Timer(const Duration(seconds: 4), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthGate()));
+    });
   }
 
-  class _SplashScreenState extends State<SplashScreen> {
-    get fit => null;
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
-    @override
-    void initState() {
-      super.initState();
-      Timer(const Duration(seconds: 8), () {
-        Navigator.of(context)
-            .pushReplacement(MaterialPageRoute(builder: ((context) =>  const AuthGate())));
-      });
-    }
-    @override
-    Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  const Color.fromARGB(255, 122, 116, 116),
+      backgroundColor: const Color.fromARGB(255, 122, 116, 116),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
+          alignment: Alignment.center,
           children: <Widget>[
-            Expanded(
-              child: Image.asset(
-                "assets/images/sunset.jpg",
-                fit: BoxFit.fill, // Ensures the image fills the whole space
+            if (_isVideoPlaying)
+              SizedBox.expand(
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: SizedBox(
+                    width: _controller.value.size.width,
+                    height: _controller.value.size.height,
+                    child: VideoPlayer(_controller),
+                  ),
+                ),
+              ),
+            AnimatedOpacity(
+              opacity: _isVideoPlaying ? 0.0 : 1.0,
+              duration: const Duration(milliseconds: 500),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  CircularProgressIndicator(),
+                  SizedBox(height: 20),
+                  Text(
+                    'Loading...',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 20,),
           ],
         ),
       ),
     );
   }
-  }
+}

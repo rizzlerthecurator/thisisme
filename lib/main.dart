@@ -1,5 +1,7 @@
   import 'package:flutter/material.dart';
   import 'package:firebase_core/firebase_core.dart';
+import 'package:thisismeapp/screens/Home.dart';
+import 'package:thisismeapp/screens/home_page.dart';
   import 'package:thisismeapp/screens/splash_screen.dart';
   import 'firebase_options.dart';
 
@@ -20,10 +22,11 @@
         debugShowCheckedModeBanner: false,
         title: 'This Is Me',
         theme: ThemeData(
+          fontFamily: 'DancingScript',
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        home:  const SplashScreen(),
       );
     }
   }
